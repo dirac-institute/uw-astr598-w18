@@ -1,0 +1,184 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper, portrait, margin=1.25in]{geometry}
+
+\usepackage{authblk}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{ASTR 598: AstroStatistics and Machine Learning}
+\rhead{Spring 2017}
+\rfoot{\em \tiny Compiled on \today\ at \currenttime}
+\cfoot{\thepage}
+\lfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% author-defined commands
+\newcommand\about     {\hbox{$\sim$}}
+\newcommand\x         {\hbox{$\times$}}
+\newcommand\othername {\hbox{$\dots$}}
+\def\eq#1{\begin{equation} #1 \end{equation}}
+\def\eqarray#1{\begin{eqnarray} #1 \end{eqnarray}}
+\def\eqarraylet#1{\begin{mathletters}\begin{eqnarray} #1 %
+                  \end{eqnarray}\end{mathletters}}
+\def\non    {\nonumber \\}
+\def\DS     {\displaystyle}
+\def\E#1{\hbox{$10^{#1}$}}
+\def\sub#1{_{\rm #1}}
+\def\case#1/#2{\hbox{$\frac{#1}{#2}$}}
+\def\about  {\hbox{$\sim$}}
+\def\x      {\hbox{$\times$}}
+\def\ug               {\hbox{$u-g$}}
+\def\gr               {\hbox{$g-r$}}
+\def\ri               {\hbox{$r-i$}}
+\def\iz               {\hbox{$i-z$}}
+\def\a                {\hbox{$a^*$}}
+\def\O                {\hbox{$O$}}
+\def\E                {\hbox{$E$}}
+\def\Oa               {\hbox{$O_a$}}
+\def\Ea               {\hbox{$E_a$}}
+\def\Jg               {\hbox{$J_g$}}
+\def\Fg               {\hbox{$F_g$}}
+\def\J                {\hbox{$J$}}
+\def\F                {\hbox{$F$}}
+\def\N                {\hbox{$N$}}
+\def\dd               {\hbox{deg/day}}
+\def\mic              {\hbox{$\mu{\rm m}$}}
+\def\Mo{\hbox{$M_{\odot}$}}
+\def\Lo{\hbox{$L_{\odot}$}}
+\def\comm#1           {\tt #1}
+\def\refto#1          {\ref #1}
+\def\T#1              {({\bf #1})}
+\def\H#1              {({\it #1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{ASTR 598: AstroStatistics and Machine Learning}
+\author{Andrew Connolly \& \v{Z}eljko Ivezi\'{c}}
+\affil{University of Washington, Winter Quarter 2018}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle
+
+\vskip 0.3in
+\leftline{{\bf  Location and Time:} Tuesdays and Thursdays 11:00-12:20, {\bf Room: XXX}}
+
+\vskip 0.2in
+\leftline{{\bf  Office Hours:} { Any time when our office doors are open; }}
+\leftline{\hskip 1.15in After class, or Tue and Thu mornings by appt. are the best.}
+\vskip 0.2in
+\leftline{{\bf  Grading ??:} 10 homeworks, 8\% each; final exam: 20\%}
+\leftline{                 \hskip 0.8in key: $>$90\%=A, $>$80\%=B, $>$70\%=C, $>$50\%=D.}
+\vskip 0.2in
+\leftline{{\bf  Class web site:} https://github.com/XXX}
+\vskip 0.2in
+\leftline{\bf  Reference textbook:} 
+\leftline{Ivezi\'{c}, Connolly, VanderPlas \& Gray: {\it Statistics, Data Mining, and Machine Learning in Astronomy: }}
+\leftline{{\it A Practical Python Guide for the Analysis of Survey Data} (Princeton University Press, 2014)}
+\leftline{See http://press.princeton.edu/titles/10159.html}
+\vskip 0.3in
+
+{\bf Learning Goals:}
+
+This course will introduce students to most common statistical and computer science methods 
+used in astronomy and other physical sciences. It will combine theoretical background with 
+examples of data analysis based on modern astronomical datasets. Practical data analysis 
+will be done using python tools, with emphasis on astroML module (see www.astroML.org). 
+While focused on astronomy, this course should be useful to all students interested in data 
+analysis in physical sciences and engineering. The lectures will be aimed at undergraduate 
+students and the main discussion topics will be based on  Chapters 4 and 5, and selected 
+topics from Chapters 6-10, from the reference textbook. 
+
+By taking this course, students will develop basic understanding of topics such as robust 
+statistics, hypothesis testing, maximum likelihood analysis, Bayesian statistics, model 
+parameter estimation, the goodness of fit and model selection, density estimation and 
+clustering, unsupervised and supervised classification, dimensionality reduction, 
+regression and time series analysis. Most of these topics will be applied in class homeworks 
+to analysis of astronomical data. 
+
+{\bf Prerequisites:}
+The students taking this class are required to have basic calculus and basic python skills, 
+as well as basic scientific measurements and statistics skills at the level of a freshman lab. 
+
+{\bf Lecture format:}
+New material will typically be covered during the first class in a week, while
+the second class in a week will be more focused on practical data analysis work. 
+
+\newpage 
+% \vskip 0.2in
+\leftline{\bf  Class Schedule:}
+\begin{itemize}
+
+\item WEEK 0 (Thu, Jan 4): Introduction (syllabus, literature, astroML) 
+
+\item WEEK 1 (starting Jan 8): 
+\begin{itemize}
+\item Tue: 
+\item Thu: 
+\end{itemize}     
+\item WEEK  2 (starting Jan 15): Introduction to statistics (probability, distributions, 
+                 robust statistics, Central Limit Theorem,  hypothesis testing).
+\begin{itemize}
+\item Tue (\v{Zeljko}): 
+\item Thu: 
+\end{itemize}     
+
+\item WEEK  3 (starting Jan 22):  Maximum likelihood and applications in astronomy.
+\begin{itemize}
+\item Tue: 
+\item Thu: 
+\end{itemize}     
+
+\item WEEK  4 (starting Jan 29):  Bayesian statistics and introduction to MCMC.
+\begin{itemize}
+\item Tue: 
+\item Thu: 
+\end{itemize}     
+
+\item WEEK  5 (starting Feb 5):  Model parameter estimation and model selection.
+\begin{itemize}
+\item Tue (\v{Zeljko}): 
+\item Thu (\v{Zeljko}): 
+\end{itemize}     
+
+\item WEEK  6 (starting Feb 12):   Time series analysis.
+\begin{itemize}
+\item Tue: 
+\item Thu: 
+\end{itemize}     
+
+\item WEEK  7 (starting Feb 19):   Big data in astronomy.
+\begin{itemize}
+\item Tue (Mario?): 
+\item Thu (Andy?): 
+\end{itemize}     
+
+\item WEEK  8 (starting Feb 26): Dimensionality reduction and regression.
+\begin{itemize}
+\item Tue: 
+\item Thu: 
+\end{itemize}     
+
+\item WEEK  9 (starting Mar 5):  Density estimation and clustering.
+\begin{itemize}
+\item Tue (Mario?):  
+\item Thu (Mario?):  
+\end{itemize}     
+
+\item FINAL EXAM: Mar 13 (Tue, 11:00-12:20, XXX): cake and closed book final exam.
+
+\end{itemize}
+
+
+\vskip 0.2in
+
+\leftline{\bf  Homework}
+
+There will be bi-weekly homeworks, based on a term-long survey data analysis project.
+We will use GitHub and Jupyter notebooks for HW submission. 
+
+\end{document}
+
