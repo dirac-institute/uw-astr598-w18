@@ -6,8 +6,8 @@
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{ASTR 598: AstroStatistics and Machine Learning}
-\rhead{Spring 2017}
+\lhead{ASTR 598: Astro-statistics and Machine Learning}
+\rhead{Winter 2018}
 \rfoot{\em \tiny Compiled on \today\ at \currenttime}
 \cfoot{\thepage}
 \lfoot{}
@@ -55,8 +55,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title{ASTR 598: AstroStatistics and Machine Learning}
-\author{Andrew Connolly \& \v{Z}eljko Ivezi\'{c}}
+\title{{\bf ASTR 598: Astro-statistics and Machine Learning}} 
+\author{Andy Connolly \& \v{Z}eljko Ivezi\'{c}}
 \affil{University of Washington, Winter Quarter 2018}
 \date{\vspace{-5ex}}
 
@@ -64,16 +64,13 @@
 \maketitle
 
 \vskip 0.3in
-\leftline{{\bf  Location and Time:} Tuesdays and Thursdays 11:00-12:20, {\bf Room: XXX}}
+\leftline{{\bf  Location and Time:} Tuesdays and Thursdays 11:00-12:20, {\bf Room: B305}}
 
 \vskip 0.2in
 \leftline{{\bf  Office Hours:} { Any time when our office doors are open; }}
 \leftline{\hskip 1.15in After class, or Tue and Thu mornings by appt. are the best.}
 \vskip 0.2in
-\leftline{{\bf  Grading ??:} 10 homeworks, 8\% each; final exam: 20\%}
-\leftline{                 \hskip 0.8in key: $>$90\%=A, $>$80\%=B, $>$70\%=C, $>$50\%=D.}
-\vskip 0.2in
-\leftline{{\bf  Class web site:} https://github.com/XXX}
+\leftline{{\bf  Class web site:} https://github.com/dirac-institute/uw-astr598-w18} 
 \vskip 0.2in
 \leftline{\bf  Reference textbook:} 
 \leftline{Ivezi\'{c}, Connolly, VanderPlas \& Gray: {\it Statistics, Data Mining, and Machine Learning in Astronomy: }}
@@ -82,45 +79,87 @@
 \vskip 0.3in
 
 {\bf Learning Goals:}
-
-This course will introduce students to most common statistical and computer science methods 
+This course will introduce graduate students to most common statistical and computer science methods 
 used in astronomy and other physical sciences. It will combine theoretical background with 
 examples of data analysis based on modern astronomical datasets. Practical data analysis 
-will be done using python tools, with emphasis on astroML module (see www.astroML.org). 
-While focused on astronomy, this course should be useful to all students interested in data 
-analysis in physical sciences and engineering. The lectures will be aimed at undergraduate 
-students and the main discussion topics will be based on  Chapters 4 and 5, and selected 
+will be done using python tools, such as astroML module (see www.astroML.org). 
+While focused on astronomy, this course should be useful to all graduate students interested in data 
+analysis in physical sciences and engineering. The lectures will be aimed at graduate 
+students and the main discussion topics will be based on Chapters 4 and 5, and selected 
 topics from Chapters 6-10, from the reference textbook. 
 
-By taking this course, students will develop basic understanding of topics such as robust 
+By taking this course, students will develop working knowledge of topics such as robust 
 statistics, hypothesis testing, maximum likelihood analysis, Bayesian statistics, model 
 parameter estimation, the goodness of fit and model selection, density estimation and 
 clustering, unsupervised and supervised classification, dimensionality reduction, 
-regression and time series analysis. Most of these topics will be applied in class homeworks 
-to analysis of astronomical data. 
+regression and time series analysis. Most of these topics will be applied in class 
+homeworks and projects to analysis of astronomical data. 
 
+\vskip 0.2in
 {\bf Prerequisites:}
-The students taking this class are required to have basic calculus and basic python skills, 
-as well as basic scientific measurements and statistics skills at the level of a freshman lab. 
+The students taking this class are required to have taken basic calculus and statistics, 
+to have knowledge of scientific measurements at the level of a senior lab (in science 
+or engineering), as well as to have basic python skills. 
 
+\vskip 0.2in
 {\bf Lecture format:}
-New material will typically be covered during the first class in a week, while
-the second class in a week will be more focused on practical data analysis work. 
+After a few introductory lectures, new material will be introduced on a schedule that 
+will enable independent student work on a publication-quality class project. 
 
 \newpage 
 % \vskip 0.2in
-\leftline{\bf  Class Schedule:}
+\leftline{\bf  Class Schedule (tentative):}
 \begin{itemize}
 
-\item WEEK 0 (Thu, Jan 4): Introduction (syllabus, literature, astroML) 
+\item WEEK 0 (first class on Jan 4, \v{Zeljko}): Introduction to class (syllabus, literature, astroML, class project, DataLab) 
+
+\item WEEK 1 (starting Jan 8, \v{Zeljko}): Introduction to statistics (probability, distributions, 
+                         robust statistics, Central Limit Theorem, hypothesis testing).
+
+\item WEEK  2 (starting Jan 15): Work on the Class Project
+
+\item WEEK  3 (starting Jan 22): Maximum likelihood and applications in astronomy.
+
+\item WEEK  4 (starting Jan 29): Bayesian statistics and introduction to MCMC.
+
+\item WEEK  5 (starting Feb 5): Model parameter estimation and model selection.
+
+\item WEEK  6 (starting Feb 12): Regression and Time series analysis.
+
+\item WEEK  7 (starting Feb 19): Dimensionality reduction. 
+
+\item WEEK  8 (starting Feb 26): Density estimation and clustering.
+
+\item WEEK  9 (starting Mar 5): Supervised Classification 
+
+\item FINAL EXAM: Mar 13 (Tue, 11:00-12:20, B305): cake and closed book final exam.
+
+\end{itemize}
+
+\vskip 0.2in
+
+\leftline{\bf  Class Project}
+
+A quarter-long survey data analysis project is described separately (see the class website). 
+We will use GitHub and Jupyter notebooks for progress tracking. 
+
+\end{document}
+
+
+
+
+
+\item WEEK 0 (first class on Jan 4): 
+\item Thu (\v{Zeljko}): Introduction (syllabus, literature, astroML, class project, DataLab) 
 
 \item WEEK 1 (starting Jan 8): 
-\begin{itemize}
-\item Tue: 
-\item Thu: 
-\end{itemize}     
-\item WEEK  2 (starting Jan 15): Introduction to statistics (probability, distributions, 
+\begin{itemize} 
+\item Tue (\v{Zeljko}): Introduction to statistics (probability, distributions, 
                  robust statistics, Central Limit Theorem,  hypothesis testing).
+\item Thu (\v{Zeljko}): 
+\end{itemize}     
+
+\item WEEK  2 (starting Jan 15): 
 \begin{itemize}
 \item Tue (\v{Zeljko}): 
 \item Thu: 
@@ -168,17 +207,5 @@ the second class in a week will be more focused on practical data analysis work.
 \item Thu (Mario?):  
 \end{itemize}     
 
-\item FINAL EXAM: Mar 13 (Tue, 11:00-12:20, XXX): cake and closed book final exam.
 
-\end{itemize}
-
-
-\vskip 0.2in
-
-\leftline{\bf  Homework}
-
-There will be bi-weekly homeworks, based on a term-long survey data analysis project.
-We will use GitHub and Jupyter notebooks for HW submission. 
-
-\end{document}
 
