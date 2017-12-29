@@ -1,0 +1,191 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper, portrait, margin=1.25in]{geometry}
+
+\usepackage{authblk}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{ASTR 598: Astro-statistics and Machine Learning}
+\rhead{Winter 2018}
+\rfoot{\em \tiny Compiled on \today\ at \currenttime}
+\cfoot{\thepage}
+\lfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% author-defined commands
+\newcommand\about     {\hbox{$\sim$}}
+\newcommand\x         {\hbox{$\times$}}
+\newcommand\othername {\hbox{$\dots$}}
+\def\eq#1{\begin{equation} #1 \end{equation}}
+\def\eqarray#1{\begin{eqnarray} #1 \end{eqnarray}}
+\def\eqarraylet#1{\begin{mathletters}\begin{eqnarray} #1 %
+                  \end{eqnarray}\end{mathletters}}
+\def\non    {\nonumber \\}
+\def\DS     {\displaystyle}
+\def\E#1{\hbox{$10^{#1}$}}
+\def\sub#1{_{\rm #1}}
+\def\case#1/#2{\hbox{$\frac{#1}{#2}$}}
+\def\about  {\hbox{$\sim$}}
+\def\x      {\hbox{$\times$}}
+\def\ug               {\hbox{$u-g$}}
+\def\gr               {\hbox{$g-r$}}
+\def\ri               {\hbox{$r-i$}}
+\def\iz               {\hbox{$i-z$}}
+\def\a                {\hbox{$a^*$}}
+\def\O                {\hbox{$O$}}
+\def\E                {\hbox{$E$}}
+\def\Oa               {\hbox{$O_a$}}
+\def\Ea               {\hbox{$E_a$}}
+\def\Jg               {\hbox{$J_g$}}
+\def\Fg               {\hbox{$F_g$}}
+\def\J                {\hbox{$J$}}
+\def\F                {\hbox{$F$}}
+\def\N                {\hbox{$N$}}
+\def\dd               {\hbox{deg/day}}
+\def\mic              {\hbox{$\mu{\rm m}$}}
+\def\Mo{\hbox{$M_{\odot}$}}
+\def\Lo{\hbox{$L_{\odot}$}}
+\def\comm#1           {\tt #1}
+\def\refto#1          {\ref #1}
+\def\T#1              {({\bf #1})}
+\def\H#1              {({\it #1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{{\bf ASTR 598: Astro-statistics and Machine Learning}} 
+\author{Andy Connolly \& \v{Z}eljko Ivezi\'{c}}
+\affil{University of Washington, Winter Quarter 2018}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle
+
+\vskip 0.3in
+\leftline{\Large {\bf  Class Project:} Deep Proper Motion Catalog for SDSS Stripe 82 Region} 
+\vskip 0.3in
+
+{\bf Scientific Goals:}
+The main scientific aim of this quarter-long class project is to produce a catalog
+with improved proper motion measurements for faint stars ($14 < r < 22$) in the SDSS Stripe 
+82 region (250 sq. deg.). The SDSS-based catalog\footnote{Bramich et al. 2008, ``Light and motion in SDSS 
+Stripe 82: the catalogues'', MNRAS 386, 887.} for 3.7 million objects
+constructed by Bramich et al. will be augmented with newer additional data obtained
+with the Dark Energy Camera\footnote{See, for example, http://legacysurvey.org/decamls/}, 
+and possibly from other surveys, and the proper motions will be refit. If all goes well,
+the results should be publishable in a top astronomical journal. 
+
+\vskip 0.2in
+{\bf Learning Goals:}
+While working on this project, students will develop a working knowledge of
+the NOAO Datalab interface, astropy, pandas, astroML and other astronomical
+python tools, and of selected methods from astro-statistics (e.g., robust
+regression, Bayesian statistics, clustering, visualization). 
+
+\vskip 0.2in
+{\bf Prerequisites:}
+The students taking this class are required to open an account at the NOAO Data Lab 
+site\footnote{http://datalab.noao.edu}. The Data Lab allows users to
+\begin{itemize}
+\item access, search, and filter databases containing large catalogs;
+\item create custom databases and analyses from large catalogs using familiar tools;
+\item combine catalog databases with data from NOAO telescopes, analysis results, and data from external archives in one place; 
+\item share custom results easily with collaborators and create and publish catalogs derived from large data sets through a central workspace;
+\item experiment with tools being developed for LSST using existing large data sets.
+\end{itemize}
+
+We will use GitHub and Jupyter notebooks for progress tracking. 
+
+\vskip 0.2in
+{\bf Brief Project Outline}
+
+We will discuss detailed work plan in class and here is only an overview of the
+main steps: 
+\begin{enumerate}
+\item Download Bramich et al. catalog (HLC files) from the SDSS
+website\footnote{http://das.sdss.org/va/stripe\_82\_variability/SDSS\_82\_public/}
+and perform preliminary analysis (e.g., the variation of proper motion errors with 
+ position and magnitude; also, see examples in the last bullet below and, in particular,
+    reproduce Figs. 22 and 23 from Sesar et al.). 
+\item Cross-match to DECaLS data using Data Lab (technical details TBD). 
+\item Preliminary analysis and quality assurance of the assembled data set (e.g., 
+          coordinates vs. time plots for stars with large SDSS proper motions); 
+          decision whether astrometric recalibration is required (perhaps using galaxies). 
+\item Fit proper motions (see eqs.3-6 in Bramich et al.)  using the Bramich et al. SDSS values as priors. 
+\item Analyze updated proper motions (e.g., Fig. 2 in Vidrih et al. 2007, MNRAS 382, 515;
+   Figs. 22 and 23 from Sesar et al. 2010, AJ 708, 717, color-coded with the mean proper 
+   motions), including using quasars for the assessment of systematic errors. 
+\item Write paper(s) and become rich and famous! 
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+The Legacy Surveys (http://legacysurvey.org) 
+
+The Legacy Surveys are producing an inference model catalog of the sky from a set of 
+optical and infrared imaging data, comprising 14,000 deg² of extragalactic sky visible 
+from the northern hemisphere in three optical bands (g,r,z) and four infrared bands. 
+The sky coverage is approximately bounded by -18° < δ < +84° in celestial coordinates 
+and |b| > 18° in Galactic coordinates. 
+
+To achieve this goal, the Legacy Surveys are conducting 3 imaging projects on different 
+telescopes, described in more depth at the following links:
+
+The Beijing-Arizona Sky Survey (BASS)	
+The DECam Legacy Survey (DECaLS)	
+The Mayall z-band Legacy Survey (MzLS)
+
+
+Current Release: Data Release 5, October 2017
+
+Images from DECaLS g,r,z-band observations are included from August 2014 through 
+May 2017. DR5 also includes DECam data from a range of non-DECaLS surveys, including 
+observations that were conducted from September 2012 to May 2017.
+
+DR5 imaging is first reduced through the NOAO Community Pipeline before being processed 
+using the Tractor. The optical data covers a disjoint footprint with, roughly, 7400 deg² having 
+at least one observation in g-band, 8000 deg² having at least one observation in r-band and 
+10200 deg² having at least one observation in z-band. A total of 6800 deg² is covered by at least 
+one observation in all three optical filters.
+
+There are approximately 680 million unique sources in DR5 (371 million are unresolved). In DR5, five 
+morphological types are used: point sources, round exponential galaxies with a variable radius ("REX"), 
+deVaucouleurs profiles (elliptical galaxies), exponential profiles (spiral galaxies), and composite profiles 
+that are deVaucouleurs + exponential (with the same source center). 
+
+Co-added images and Tractor catalogs are presented in "bricks" of approximate size 0.25° × 0.25°. Each brick 
+is defined in terms of a box in RA,Dec coordinates. For the image stacks, we use a simple tangent-plane (WCS TAN) 
+projection around the brick center. The projections for the g,r,z filters are identical.
+
+The flux calibration for DECaLS is on the AB natural system of the DECam instrument. The natural system means 
+that we have not applied color terms to any of the photometry, but report fluxes as observed in the DECam filters.
+
+Zero point magnitudes for the CP version 2 reductions of the DECam images were computed by comparing 
+7″ diameter aperture photometry to PS1 photometry, where the latter was modified with color terms to place 
+the PS1 photometry on the DECam system. The same color terms are applied to all CCDs. Zero points are computed 
+separately for each CCD, but not for each amplifier. The color terms to convert from PS1 to DECam were computed for stars in the color range 0.4<(g−i)<2.7
+ as follows:...
+
+
+The brightnesses of objects are all stored as linear fluxes in units of nanomaggies (3.631e-29 erg/cm2/Hz).
+
+The median 5σ point source (AB) depths for areas with 3 observations in DECaLS was g=24.65, r=23.61, z=22.84. 
+
+
+
+
+http://adsabs.harvard.edu/abs/2017MNRAS.470.1259D
+
+Deason et al. (2017) combined Gaia DR1 with SDSS and obtained proper motion errors of 2 mas/yr 
+down to r=20. With this dataset, they measured net prograde rotation of halo stars (RR Lyrae, 
+BHB and K giant samples) of 14 ± 2 ± 10 (syst.) km/s, out to Galactocentric radius of 50 kpc.
+
+Data compilation for halo streams: Grillmair and Carlin (2016) 
+https://arxiv.org/pdf/1603.08936.pdf
