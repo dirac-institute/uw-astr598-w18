@@ -14,7 +14,8 @@
  * [Syllabus and course description](syllabus/syllabus.pdf)
  * [Lectures](notebooks/README.md)
  * [Class Project](project/)
- 
+ * [Homeworks](homeworks/)
+
 ## Reference textbook
 [Ivezić, Connolly, VanderPlas & Gray: Statistics, Data Mining, and Machine Learning in Astronomy:
 A Practical Python Guide for the Analysis of Survey Data (Princeton University Press, 2014)](http://press.princeton.edu/titles/10159.html)
