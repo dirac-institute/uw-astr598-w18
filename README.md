@@ -12,7 +12,7 @@
 ## Class Materials
 
  * [Syllabus and course description](syllabus/syllabus.pdf)
- * [Lectures](notebooks/README.md)
+ * [Lectures](lectures/)
  * [Class Project](project/)
  * [Homeworks](homeworks/)
 
