@@ -11,6 +11,7 @@
 *.cb
 *.cb2
 *.fits.gz
+*.ipynb_checkpoints/*
 *.png
 
 ## Intermediate documents:
