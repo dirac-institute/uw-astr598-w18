@@ -12,7 +12,7 @@
 *.cb2
 *.fits.gz
 */group2/.ipynb_checkpoints/*
-## */group2/*.png
+*/group2/*.png
 
 ## Intermediate documents:
 *.dvi
