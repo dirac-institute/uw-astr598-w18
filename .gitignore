@@ -1,3 +1,7 @@
+*.fits
+*.fits.bz
+HLC*
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
