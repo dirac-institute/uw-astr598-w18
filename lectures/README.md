@@ -1,6 +1,6 @@
 
-# ASTR 598, Winter 2018, University of Washington: 
-# Astro-statistics and Machine Learning  
+## ASTR 598, Winter 2018, University of Washington: 
+## Astro-statistics and Machine Learning  
 
 [Andy Connolly](http://depts.washington.edu/astron/profile/connolly-andy/) and [Željko Ivezić](http://faculty.washington.edu/ivezic/) 
 
