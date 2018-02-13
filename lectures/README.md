@@ -8,7 +8,7 @@
  *  Lecture 1: [Introduction to class](Week-0-Thu.pdf)
  *  Lecture 2: [Introduction to Probability & Statistics. I](Week-1-Tue.ipynb)
  *  Lecture 3: [Introduction to Probability & Statistics. II](Week-1-Thu.ipynb)
- *  Lecture 4: [Maximum Likelihood and Applications in Astronomy](Week-2-Thu.ipynb)
+ *  Lecture 4: [Maximum Likelihood and Applications in Astronomy. I](Week-2-Thu.ipynb)
  *  Lecture 5: [Maximum Likelihood and Applications in Astronomy. II](Week-3-Thu.ipynb)
  *  Lecture 6: [Introduction to Bayesian Inference](Week-4-Tue-Class.ipynb)
  *  Lecture 7: [Bayesian Inference with MCMC](Week-4-Thu.ipynb)
