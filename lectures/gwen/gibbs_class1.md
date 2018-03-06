@@ -1,41 +1,63 @@
 Sampling from the Normal model using Gibbs
 ------------------------------------------
 
-Here is a set of data
+Here is a set of data that we will assume follows a normal distribution.
 
     y = c(0.57, 0.71, -0.45, 0.92, -0.67, 3.04, 0.32, 1.38, 1.76, -0.14, -0.37, 0.69)
 
 In class, we saw the model
 $$ \\boldsymbol{y} \\overset{\\mathrm{iid}}{\\sim} N(\\theta, \\sigma^2) $$
- with conjugate priors
-*θ* ∼ *N*(*μ*<sub>*n*</sub>, *τ*<sub>*n*</sub><sup>2</sup>)
+ with *conjugate priors*
+*θ* ∼ *N*(*μ*<sub>0</sub>, *τ*<sub>0</sub><sup>2</sup>)
 
 and
-$$ \\sigma^2 \\sim \\mathrm{Inv\\text{-}\\chi^2}(\\nu\_0+n, \\frac{\\nu\_0\\sigma^2\_0 + nv}{\\nu\_0+n}). $$
- The mean *μ*<sub>*n*</sub> and variance *τ*<sub>*n*</sub><sup>2</sup>
+*σ*<sup>2</sup> ∼ *I**n**v*-*χ*<sup>2</sup>(*ν*<sub>0</sub>, *σ*<sub>0</sub><sup>2</sup>).
+
+We used Bayes' Theorem with these prior distributions and the likelihood
+to find *conditional* posterior distributions for *θ* and
+*σ*<sup>2</sup>, *p*(*θ*|**y**, *σ*<sup>2</sup>) and
+*p*(*σ*<sup>2</sup>|**y**, *θ*).
+
+The conditional distribution for *θ* was a Normal distribution with mean
+*μ*<sub>*n*</sub> and variance *τ*<sub>*n*</sub><sup>2</sup>, which both
 depend on *n* (the number of data points), the mean of the data
 $\\bar{\\boldsymbol{y}}$, the known value of *σ*<sup>2</sup>, and the
-hyperparameters *μ*<sub>0</sub> and *τ*<sub>0</sub>. The two parameters
-of the scaled-inverse-*χ*<sup>2</sup> distribution (the degrees of
-freedom and the scale factor) depend on *n*,
-$v = \\frac{1}{n}\\Sigma\_i^{n}(y\_i - \\theta)^2$, and hyperparameters
-*ν*<sub>0</sub> and *σ*<sub>0</sub><sup>2</sup>. See your notes from
-class.
+hyperparameters *μ*<sub>0</sub> and *τ*<sub>0</sub>.
 
-We're interested in the joint posterior distribution of the *θ* and
-*σ*<sup>2</sup> parameters given the data **y**:
+The conditional distribution for *σ*<sup>2</sup> was a scaled,
+inverse-*χ*<sup>2</sup> distribution with *ν*<sub>0</sub> + *n* degrees
+of freedom and scale factor
+$\\frac{\\nu\_0\\sigma^2\_0 + nv}{\\nu\_0+n}$, where
+$v = \\frac{1}{n}\\Sigma\_i^{n}(y\_i - \\theta)^2$, and *ν*<sub>0</sub>
+and *σ*<sub>0</sub><sup>2</sup> are hyperparameters. (See your notes
+from class.)
+
+Suppose both *θ* and *σ*<sup>2</sup> are unknown, and we want to know
+their most probable values given the data, the model, and our prior
+assumptions. In this case, we're interested in the *joint* posterior
+distribution of the *θ* and *σ*<sup>2</sup> parameters given the data
+**y**:
 $$ p(\\theta,\\sigma^2|\\boldsymbol{y}) = \\frac{p(\\boldsymbol{y}|\\theta, \\sigma^2)p(\\theta,\\sigma^2)}{p(\\boldsymbol{y})}. $$
- We want to know what *p*(*θ*, *σ*<sup>2</sup>|**y**) looks like. We
-don't have *p*(**y**), but it's just a constant anyway, so we can
-rewrite this as
+ In otherwords, we want to know what *p*(*θ*, *σ*<sup>2</sup>|**y**)
+looks like in parameter space. We don't have *p*(**y**), but it's just a
+constant anyway, so we can rewrite this as
 *p*(*θ*, *σ*<sup>2</sup>|**y**)∝*p*(**y**|*θ*, *σ*<sup>2</sup>)*p*(*θ*, *σ*<sup>2</sup>)
 
 We assume independent prior probability distributions for *θ* and
 *σ*<sup>2</sup>:
 *p*(*θ*, *σ*<sup>2</sup>|**y**)∝*p*(**y**|*θ*, *σ*<sup>2</sup>)*p*(*θ*)*p*(*σ*<sup>2</sup>).
 
-To set up the conjugate prior distributions, we must decide on fixed
-values for the hyperparameters
+We haven't written out the equation for the likelihood
+*p*(**y**|*θ*, *σ*<sup>2</sup>) yet, and for whatever reason we don't
+want to (e.g. it seems like a lot of work, or it is totally
+intractable). If we had the likelihood written out, then we could find
+conjugate priors and draw samples from the posterior using a Metropolis
+sampler. Instead, we will be clever and use the *conditional*
+distributions for *θ* and *σ*<sup>2</sup> to get samples from the
+posterior distribution via a Gibbs Sampler!
+
+To set up the conjugate priors, we must decide on fixed values for the
+hyperparameters
 {*μ*<sub>0</sub>, *τ*<sub>0</sub><sup>2</sup>, *σ*<sub>0</sub><sup>2</sup>, *ν*<sub>0</sub>}
 (until Thursday, anyway...). Let's do that right now:
 
@@ -44,24 +66,16 @@ values for the hyperparameters
     sigsq0 = 1.2
     nu0 = 1.2
 
-We've set up our prior distributions by defining the values above, and
-we are ready to draw samples from the posterior distribution!
-
-To draw samples from the posterior, we could use a Metropolis sampler.
-However, we haven't written out the distribution
-*p*(**y**|*θ*, *σ*<sup>2</sup>) (i.e. the likelihood) and for whatever
-reason don't want to (maybe it seems like a lot of work, or it is
-totally intractable). Instead, we can be clever and use the
-*conditional* distributions for *θ* and *σ*<sup>2</sup> to get samples
-from the posterior distribution via a Gibbs Sampler!
-
-A Gibbs sampler doesn't have to be tuned like a Metropolis algorithm
-does. We can use a Gibbs sampler in this example because we have closed
-form equations for the conditional posteriors, i.e.
-$$ p(\\theta | \\boldsymbol{y}, \\sigma^2) \\\\ p(\\sigma^2|\\boldsymbol{y}, \\theta) $$
- (see your notes). It is easy to draw values from these distributions in
-a Markov chain algorithm if you have some nice statistical software
-(like R! or Python...?).
+We have set the hyperparameters, and already have the equations for the
+conditional distributions, so all that's left is writing a Gibbs
+sampler! A Gibbs sampler doesn't have to be tuned like a Metropolis
+algorithm does. It's important to stress that we can use a Gibbs sampler
+in this example because we have closed form equations for the
+conditional posteriors, i.e.
+$$ p(\\theta | \\boldsymbol{y}, \\sigma^2) \\\\ p(\\sigma^2|\\boldsymbol{y}, \\theta).$$
+ It is easy to draw values from these distributions in a Markov chain
+algorithm if you have some nice statistical software (like R! or
+Python...?).
 
 ### Gibbs Sampler Algorithm
 
@@ -181,15 +195,15 @@ above.
     ## 1. Empirical mean and standard deviation for each variable,
     ##    plus standard error of the mean:
     ## 
-    ##         Mean     SD Naive SE Time-series SE
-    ## theta 0.6791 0.3314  0.01048        0.01048
-    ## sigsq 1.3475 0.7004  0.02215        0.02445
+    ##        Mean     SD Naive SE Time-series SE
+    ## theta 0.675 0.3239  0.01024        0.01024
+    ## sigsq 1.353 0.6631  0.02097        0.02402
     ## 
     ## 2. Quantiles for each variable:
     ## 
-    ##          2.5%    25%    50%    75% 97.5%
-    ## theta -0.0152 0.4715 0.6884 0.8789 1.357
-    ## sigsq  0.5899 0.9177 1.1747 1.5620 2.976
+    ##          2.5%    25%    50%   75% 97.5%
+    ## theta 0.01634 0.4630 0.6642 0.888 1.304
+    ## sigsq 0.58917 0.9227 1.1877 1.622 2.953
 
 To summarize and generalize, here's some pseudocode for a Gibbs sampler
 algorithm when you have k parameters and want to make a chain of length
