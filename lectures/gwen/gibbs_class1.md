@@ -182,20 +182,20 @@ above.
     ##    plus standard error of the mean:
     ## 
     ##         Mean     SD Naive SE Time-series SE
-    ## theta 0.7116 0.3206  0.01014        0.01014
-    ## sigsq 1.3203 0.6412  0.02028        0.02531
+    ## theta 0.6791 0.3314  0.01048        0.01048
+    ## sigsq 1.3475 0.7004  0.02215        0.02445
     ## 
     ## 2. Quantiles for each variable:
     ## 
-    ##          2.5%    25%    50%   75% 97.5%
-    ## theta 0.07418 0.5005 0.7116 0.912 1.344
-    ## sigsq 0.60040 0.9137 1.1838 1.529 3.024
+    ##          2.5%    25%    50%    75% 97.5%
+    ## theta -0.0152 0.4715 0.6884 0.8789 1.357
+    ## sigsq  0.5899 0.9177 1.1747 1.5620 2.976
 
 To summarize and generalize, here's some pseudocode for a Gibbs sampler
 algorithm when you have k parameters and want to make a chain of length
 T,
 
-For (*t* = 1, ..., *T*), repeat:
+For (*t* = 2, ..., *T*), repeat:
 
 **Step 1:** Draw *ϑ*<sub>1</sub><sup>(*t*)</sup> from
 *p*(*ϑ*<sub>1</sub>|**y**, *ϑ*<sub>2</sub><sup>(*t* − 1)</sup>, *ϑ*<sub>3</sub><sup>(*t* − 1)</sup>, …, *ϑ*<sub>*k*</sub><sup>(*t* − 1)</sup>)
