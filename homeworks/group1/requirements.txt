@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+astropy
+astroML
+astroML-addons
+pytables
+keras
+keras-tqdm
+tensorflow
+vaex
